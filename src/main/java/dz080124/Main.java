@@ -8,6 +8,7 @@ import dz080124.utils.BeanUtils;
 import dz080124.utils.ReflectionUtils;
 import dz080124.utils.StringConstants;
 
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class Main {
@@ -26,8 +27,10 @@ public class Main {
         Arrays.stream(StringConstants.class.getDeclaredFields())
                 .forEach(x-> {
                     try {
-                        // get(null) на поле для статического / для определенного объекта мы должны передать его
-                        System.out.println(x.getName() + " / " + x.get(null) + " / " + x.getName().equals(x.get(null)));
+                        int modifier = x.getModifiers();
+                        if(Modifier.isStatic(modifier) && Modifier.isFinal(modifier))
+                            // get(null) на поле для статического / для определенного объекта мы должны передать его
+                            System.out.println(x.getName() + " / " + x.get(null) + " / " + x.getName().equals(x.get(null)));
                     } catch (IllegalAccessException e) {
                         System.out.println("error");
                     }

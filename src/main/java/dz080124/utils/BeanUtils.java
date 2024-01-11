@@ -36,11 +36,13 @@ public class BeanUtils {
             String setterName = ReflectionUtils.deleteFirstLetters(3,currentSetter.getName().chars());
             for (Method getter: getters) {
                 String getterName = ReflectionUtils.deleteFirstLetters(3,getter.getName().chars());
-                if(currentSetter.getParameterTypes()[0].equals(getter.getReturnType())
+                if((currentSetter.getParameterTypes()[0].equals(getter.getReturnType())
+                        ||currentSetter.getParameterTypes()[0].equals(getter.getReturnType().getSuperclass()))
                     && setterName.equals(getterName)){
                     try {
                         Object getValue = getter.invoke(from);
                         currentSetter.invoke(to,getValue);
+                        break;
                     } catch (IllegalAccessException e) {
                         System.out.println(e.getMessage());
                     } catch (InvocationTargetException e) {

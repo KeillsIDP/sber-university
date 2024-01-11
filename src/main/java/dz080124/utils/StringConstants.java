@@ -6,4 +6,6 @@ public class StringConstants {
     public static final String WEDNESDAY = "MONDAY";
     public static final String THURSDAY = "THURSDAY";
     public static final String FRIDAY = "FRIDAY";
+    public final String SATURDAY = "SATURDAY";
+    public static String SUNDAY = "SUNDAY";
 }
