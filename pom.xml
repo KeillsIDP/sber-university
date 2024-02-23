@@ -8,6 +8,7 @@
     <modules>
         <module>dz250124</module>
         <module>dz290124</module>
+        <module>dz</module>
     </modules>
 
     <build>
