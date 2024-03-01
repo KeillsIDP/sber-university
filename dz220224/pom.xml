@@ -9,7 +9,8 @@
         <version>1</version>
     </parent>
 
-    <artifactId>dz</artifactId>
+    <groupId>me.keills</groupId>
+    <artifactId>dz220224</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
