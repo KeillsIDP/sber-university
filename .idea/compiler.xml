@@ -7,10 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dz290124" />
+        <module name="dz260224" />
         <module name="dz150224" />
         <module name="dz250124" />
         <module name="dz220224" />
+        <module name="dz120224 (1) (me.keills)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my-app" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -10,6 +10,8 @@
         <module>dz290124</module>
         <module>dz150224</module>
         <module>dz220224</module>
+        <module>dz120224</module>
+        <module>dz260224</module>
     </modules>
 
     <build>
