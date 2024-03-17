@@ -2,16 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dz290124" />
         <module name="dz260224" />
         <module name="dz150224" />
+        <module name="dz29022024" />
+        <module name="dz04032024" />
+        <module name="dz120224 (1) (me.keills)" />
+        <module name="dz070324" />
+        <module name="dz290124" />
         <module name="dz250124" />
         <module name="dz220224" />
-        <module name="dz120224 (1) (me.keills)" />
+        <module name="dz110324" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
