@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/styles.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-container">
+    <h1>Привет <span th:text="${session.user.username}"></span></h1>
+    <div th:object="${user}" th:if="${session.user.card == null}">
+        <form action="#" method="post" th:action="@{/user/create-card}">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{username}"/>
+            <input type="hidden" th:field="*{password}"/>
+            <label>Завести карту</label>
+            <input required id="card_pin" placeholder="Введите PIN-код"  pattern="\d{4}" name="card_pin" type="text" minlength=4 maxlength=4>
+            <input type="submit">
+        </form>
+    </div>
+    <div th:if="${session.user.card != null}">
+        <div th:if="${!session.authenticated}">
+            <form action="#" method="post" th:action="@{/card/authentication}">
+                <input type="hidden" name="card_id" th:value="${card_id}"/>
+                <label>Аутентификация</label>
+                <input required id="pin_check" placeholder="Введите PIN-код"  pattern="\d{4}" name="card_pin" type="text" minlength=4 maxlength=4>
+                <input type="submit">
+                <label class="error" th:text="${error}"></label>
+            </form>
+        </div>
+        <div th:if="${session.authenticated}">
+            <form action="#" method="post" th:action="@{/card/authentication}">
+                <input type="hidden" name="card_id" th:value="${card_id}"/>
+                <input type="hidden" name="card_pin" th:value="${user.card.pin}"/>
+                <label>Перейти в терминал</label>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

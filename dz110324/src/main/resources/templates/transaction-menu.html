@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="/styles.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-container" th:if="${session.authenticated}">
+    <h1 th:if="${card_balance!=null}">Баланс: <span th:text="${card_balance}"></span></h1>
+    <form action="#" method="post" th:action="@{/card/get-money}">
+        <input type="hidden" name="card_id" th:value="${card_id}"/>
+        <label>Снять деньги</label>
+        <input type="number" max="9223372036854775807" min="0" name="value">
+        <input type="submit">
+        <label class="error" th:text="${error}"></label>
+    </form>
+    <form action="#" method="post" th:action="@{/card/put-money}">
+        <input type="hidden" name="card_id" th:value="${card_id}"/>
+        <label>Пополнить баланс</label>
+        <input type="number" max="9223372036854775807" min="0" name="value">
+        <input type="submit">
+    </form>
+    <form action="#" method="get" th:action="@{/card/check-money}">
+        <input type="hidden" name="card_id" th:value="${card_id}"/>
+        <label>Проверить баланс</label>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
